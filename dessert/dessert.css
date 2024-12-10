@@ -1,0 +1,54 @@
+/************* tout dabord **************/
+body{
+    background-color: rgb(92, 43, 3);
+    color: white;
+    box-sizing: border-box;
+    margin: 0;
+}
+h1{
+    text-align: center;
+}
+h6{
+    margin-top: -20px;
+    text-align: center;
+}
+/*************    main    **************/
+main{
+    margin: 20px 50px;
+/*    box-shadow: 0 0 10px rgb(145, 142, 142);*/
+}
+
+legend{
+    text-align: center;
+}
+article{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+p{
+    width: 100%;
+    margin-left: 20px;
+}
+button:hover{
+    color: white;
+    border: none;
+    background-color: transparent;
+    height: 10px;
+    box-shadow: 0 0 10px rgb(145, 142, 142);
+}
+/************** footer ***************/
+footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#factdessert{
+    width: 150%;
+    padding-left: 100px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

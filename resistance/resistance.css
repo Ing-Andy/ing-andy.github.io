@@ -1,0 +1,88 @@
+/*******avant tout********/
+body{
+    box-sizing: border-box;
+    margin: 0;  
+}
+button{
+    border: none;
+    background-color: transparent;
+}
+main{
+    margin: 0% 10%;
+    font-family: serif;
+}
+fieldset{
+    width: 80%;
+    margin: 10px 10px;
+    border-radius: 20px;
+}
+h6,h2{
+    text-align: center;
+}
+.millieu{
+    width: 80%;
+    margin: 40% 10px;
+    border-radius: 20px;
+}
+legend{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.fin{
+    margin-top: 30%;
+}
+/*******  header  *******/
+h2{
+    margin-bottom: 0%;
+}
+h6{
+    margin-top: -04px;
+}
+/******* section1 *******/
+.section1{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.container1,.container2,.container3{
+    width: 100%;
+}
+
+article{
+    display: flex;
+    flex-direction: row;
+    margin: -10px 10px;
+}
+p{
+    width: 80%;
+}
+
+/******* section2 *******/
+.section2{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+/******* section3 *****/
+.section3{
+    display: flex;
+    flex-direction: row;
+}
+#factresistance{
+    width: 50%;
+    padding-left: 100px;
+}
+p{
+    width: 50%;
+    text-align: center;
+}
+a{
+    margin-left: 20px;
+    color: black;
+    text-decoration: none;
+}
