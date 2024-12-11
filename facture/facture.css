@@ -8,6 +8,7 @@ body{
     background-color: black;
     border-radius: 20px;
     margin: 0;
+    
 }
 legend{
     text-align: center;
@@ -24,6 +25,6 @@ h6{
     text-align: center;
     margin-top: -20px;
 }
-.boutons-container{
-    
+ul > *{
+    margin: 0px 25px;
 }
