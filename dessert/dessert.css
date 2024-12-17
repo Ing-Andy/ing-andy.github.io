@@ -46,9 +46,38 @@ footer{
 }
 #factdessert{
     width: 150%;
-    padding-left: 100px;
+    /* padding-left: 100px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 a{
     text-decoration: none;
     color: white;
+}
+
+
+@media screen and (max-width: 800px) {
+    .section3{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-grow: 1;
+    }
+    #factdessert{
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+    }
+    .section3 p{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

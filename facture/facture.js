@@ -11,164 +11,90 @@ document.addEventListener("DOMContentLoaded", function() {
     
     let total = 0;
 
-    // Afficher les choix d'entrées
-    entreeData.forEach(item => {
+    function updateTotal() {
+        totalElement.textContent = total;
+    }
+
+    function createMenuItem(item, container) {
         const li = document.createElement("li");
-        // li.textContent = `${item.nom} : ${item.prix} FCFA `;
-        // li.style.display = 'flex';
-        // li.style.justifyContent = 'space-arroud'
-        li.textContent = '';
-        const p1 = document.createElement('p');
-        const p2 = document.createElement('p');
+        const p1 = document.createElement("p");
+        const p2 = document.createElement("p");
         p1.textContent = `${item.nom} :`;
-        p2.textContent = `${item.prix}`;
+        p2.textContent = `${item.prix} FCFA`;
 
-
-        li.style.display = 'flex';
-        li.style.flexDirection = "row";
-        li.style.justifyContent = "center"
+        const divButton = document.createElement("div");
+        const moinButton = document.createElement("button");
+        const plusButton = document.createElement("button");
+        moinButton.textContent = "-";
+        plusButton.textContent = "+";
         
-        // je cree ma div div_boutton
-        const div_boutton = document.createElement("div");
-        const moin = document.createElement("button");
-        const plus = document.createElement("button");
 
-        // je les arrange un peut
-        div_boutton.style.display = "flex";
-        div_boutton.style.width = "10px";
-        div_boutton.style.marginLeft = "20px"
-        moin.style.backgroundColor = "transparent";
-        plus.style.backgroundColor = "transparent";   
-        moin.style.border = "none";     
-        plus.style.border = "none";
-        moin.style.color = "white";
-        plus.style.color = "white";     
+        // Styles des boutons
+        [moinButton, plusButton].forEach(button => {
+            button.style.backgroundColor = "transparent";
+            button.style.border = "none";
+            button.style.color = "white";
+        });
 
-        // je les insets leurs insigne 
-        moin.textContent = "-";
-        plus.textContent = "+";
-        
-        //utiilitee des bouttons
-        moin.addEventListener("click",()=>{
-            total -= item.prix
-            miseajour()
-            const index = entreeData.indexOf(item);
+        // Écouteurs d'événements pour les boutons
+        moinButton.addEventListener("click", () => {
+            total -= item.prix;
+            updateTotal();
+            miseajour();
+            const index = container === entrer ? entreeData.indexOf(item) : 
+                         container === resistance ? resistanceData.indexOf(item) : 
+                         dessertData.indexOf(item);
             if (index > -1) {
-                entreeData.splice(index, 1);
+                if (container === entrer) entreeData.splice(index, 1);
+                else if (container === resistance) resistanceData.splice(index, 1);
+                else dessertData.splice(index, 1);
             }
-        })
-        plus.addEventListener("click",()=>{
-            total += item.prix
-            miseajour()
-            const index = entreeData.indexof(item)
-            if(index > -1){
-                entreeData.push(index,1)
-            }
-        })
-        moin.addEventListener("click",function(){
-            entreeData.remove(item.nom,item.prix)
-        })
-        plus.addEventListener("click",function(){
-            entreeData.push(item.nom,item.prix)
-        }) 
+        });
 
-        // calcule du total
-        total += item.prix;
-        
-        // je fais des ajouts
-        div_boutton.appendChild(moin);
-        div_boutton.appendChild(plus);
+        plusButton.addEventListener("click", () => {
+            total += item.prix;
+            updateTotal();
+            miseajour();
+            if (container === entrer){
+                entreeData.push(item);
+                createMenuItem(item, entrer);
+                }
+            else if (container === resistance) {
+                resistanceData.push(item)
+                createMenuItem(item, resistance);
+            }
+            else { 
+                dessertData.push(item) 
+                createMenuItem(item, dessert);}
+        });
+
+        // Ajout des éléments
+        divButton.appendChild(moinButton);
+        divButton.appendChild(plusButton);
         li.appendChild(p1);
         li.appendChild(p2);
-        li.appendChild(div_boutton);
-        entrer.appendChild(li);
-    });
+        li.appendChild(divButton);
+        container.appendChild(li);
+    }
 
+    // Afficher les choix d'entrées
+    entreeData.forEach(item => {
+        total += item.prix;
+        createMenuItem(item, entrer);
+    });
 
     // Afficher les choix de résistances
     resistanceData.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = ``;
-        const p1 = document.createElement("p");
-        const p2 = document.createElement("p");
-        p1.textContent = `${item.nom} :`;
-        p2.textContent = `${item.prix} fcfa`;
-        
-        // creation des bouttons
-        const divboutton = document.createElement("div");
-        const bmoin = document.createElement("button");
-        const bplus = document.createElement("button");
-        bmoin.textContent = "-";
-        bplus.textContent = "+";
-
-        // calcule du prix total 
         total += item.prix;
-
-        // j'arrange un peut
-        divboutton.style.marginLeft = "20px";
-        p2.style.marginLeft = "20px";
-        divboutton.style.display = "flex";
-        // divboutton.style.width = "10px";
-        bmoin.style.backgroundColor = "transparent";
-        bplus.style.backgroundColor = "transparent";
-        bmoin.style.border = "none";     
-        bplus.style.border = "none";
-        bmoin.style.color = "white";
-        bplus.style.color = "white";
-        li.style.display = 'flex';
-        li.style.flexDirection = "row"
-        li.style.justifyContent = "center";
-
-        // je fais les ajouts
-        li.appendChild(p1);
-        li.appendChild(p2);
-        divboutton.appendChild(bmoin);
-        divboutton.appendChild(bplus);
-        li.appendChild(divboutton);
-        resistance.appendChild(li);
+        createMenuItem(item, resistance);
     });
-
 
     // Afficher les choix de desserts
     dessertData.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = ``;
-        // li.textContent = `${item.nom} : ${item.prix} FCFA`;
-
-        // creation des bouttons
-        const dboutton = document.createElement("div");
-        const p1 = document.createElement("p");
-        const p2 = document.createElement("p");
-        const moin = document.createElement("button");
-        const plus = document.createElement("button");
-        p1.textContent = `${item.nom} :`;
-        p2.textContent = `${item.prix} Fcfa`;
-        moin.textContent = "-";
-        plus.textContent = "+";
-        p2.style.marginLeft = "20px"
-        dboutton.style.marginLeft = "20px";
-        dboutton.style.display = "flex";
-        moin.style.backgroundColor = "transparent";
-        plus.style.backgroundColor = "transparent";
-        moin.style.border = "none";
-        plus.style.border = "none";
-        moin.style.color = "white";
-        plus.style.color = "white";
-        li.style.display = "flex";
-        li.style.flexDirection = "row";
-        li.style.justifyContent = "center";
-        li.style.margin = "0px";
-        
         total += item.prix;
-
-        li.appendChild(p1);
-        li.appendChild(p2);
-        dboutton.appendChild(moin);
-        dboutton.appendChild(plus)  
-        li.appendChild(dboutton);
-        dessert.appendChild(li);
+        createMenuItem(item, dessert);
     });
 
     // Afficher le total
-    totalElement.textContent = total;
+    updateTotal();
 });
