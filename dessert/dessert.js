@@ -20,7 +20,7 @@ function miseajour(){
 
     const hr = document.createElement("hr")
     hr.textContent = `${totaldessert}`
-    hr.style.width = "200px"
+    hr.style.width = "50px"
     hr.style.marginLeft = "0px"
     ul.appendChild(hr)
     
