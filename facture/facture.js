@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function() {
         divButton.appendChild(plusButton);
         divButton.style.display = "flex";
         divButton.style.justifyContent = "center";
-        divButton.style.marginLeft = "20px";
-        p2.style.marginLeft = "20px";
+        divButton.style.marginLeft = "10px";
+        p2.style.marginLeft = "10px";
         li.appendChild(p1);
         li.appendChild(p2);
         li.appendChild(divButton);
