@@ -30,12 +30,7 @@ div p{
     flex-direction: row;
     justify-content: center;
 }
-p{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: white;
-}
+
 h3{
     display: flex;
     flex-direction: row;
@@ -48,9 +43,14 @@ div p{
 a{
     text-decoration: none;
     color: white;
+    margin: 0px;
+    display: inline-block;
 }
 h5{
     color: rgba(233, 228, 228, 0.806);
+}
+.andy{
+    color: white;
 }
 
 @media screen and (max-width:600px) {
@@ -59,14 +59,11 @@ h5{
         flex-direction: row;
         justify-content: center;
         width: 100%;
-
-        /* flex-wrap: wrap;
-        margin-left: 10px;
-        margin-right: 10px; */
     }
     div{
         display: flex;
         flex-direction: column;
         flex-grow: 1;
     }
+    
 }
