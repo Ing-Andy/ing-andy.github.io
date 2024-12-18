@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const plusButton = document.createElement("button");
         moinButton.textContent = "-";
         plusButton.textContent = "+";
+        li.style.display = "flex";
+        li.style.flexDirection = "row";
+        li.style.justifyContent = "center";
         
 
         // Styles des boutons
@@ -54,23 +57,31 @@ document.addEventListener("DOMContentLoaded", function() {
         plusButton.addEventListener("click", () => {
             total += item.prix;
             updateTotal();
-            miseajour();
+
             if (container === entrer){
                 entreeData.push(item);
                 createMenuItem(item, entrer);
+                miseajour();
                 }
             else if (container === resistance) {
                 resistanceData.push(item)
                 createMenuItem(item, resistance);
+                miseajour();
             }
             else { 
                 dessertData.push(item) 
-                createMenuItem(item, dessert);}
+                createMenuItem(item, dessert);
+                miseajour();
+            }
         });
 
         // Ajout des éléments
         divButton.appendChild(moinButton);
         divButton.appendChild(plusButton);
+        divButton.style.display = "flex";
+        divButton.style.justifyContent = "center";
+        divButton.style.marginLeft = "20px";
+        p2.style.marginLeft = "20px";
         li.appendChild(p1);
         li.appendChild(p2);
         li.appendChild(divButton);
