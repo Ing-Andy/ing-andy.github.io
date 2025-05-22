@@ -2,7 +2,7 @@ body{
     margin: 0px;
     box-sizing: border-box;
     /* width: 100vh;     */
-    /* height: 100vb; */
+    height: 100vh;
     background: linear-gradient(white,black);
 }
 .p2{
